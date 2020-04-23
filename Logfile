@@ -1,0 +1,20 @@
+with open('registrations_.txt', encoding='utf-8') as ff:
+    #first_line = ff.readline()   
+    v1 = open('registrations_good.log','w', encoding='utf-8')
+    z1 = open('registrations_bad.log','w', encoding='utf-8')
+    for line in ff.readlines():
+        line1 = line.split()
+        if len(line1) == 3 and line1[0].isalpha() == True:
+            if line1[1].find('@') != -1:
+                if int(line1[2]) >= 10 and int(line1[2]) <= 90:
+                    v1.write(str(line1) + '\n')
+        else:
+            z1.write(str(line1) + '\n')
+        #print(line1)
+        #print(line)
+        #v.close()
+z1.close()
+v1.close()
+v1 = open('registrations_good.log','r', encoding='utf-8')
+print(v1.read())
+#print(first_line)
